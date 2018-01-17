@@ -19,3 +19,13 @@ if (array_key_exists('To', $_POST) && $_POST['To'] == "+19995551212") {
 } else {
     $path = "/q/NY/New_York.json";
 }
+
+$motds = array(
+    'You are truly loved.',
+    'Your best days are still ahead.',
+    "It's okay to take things one day at a time.",
+    "Remember: don't panic.",
+    'Forty-two.'
+);
+
+shuffle($motds);
