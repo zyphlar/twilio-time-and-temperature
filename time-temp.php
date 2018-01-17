@@ -53,17 +53,17 @@ $out = '<?xml version="1.0" encoding="UTF-8"?>
 <Response>';
 
 if ($voice) {
-    $out .= '<Say voice="man">Hello. '.$date->format('g:i:s A').' is the current time, on '.$date->format('F j, Y').'. It is week number '.((int)$date->format('W')).' and day number '.((int)$date->format('z')).' of the year. It '.$dst_text.' currently Daylight Saving Time in '.$obs->display_location->city.'.</Say>
+    $out .= '<Say voice="man">Hello. '.$date->format('g:i:s A').', '.$date->format('F j, Y').', was the current time when this call began. It is week number '.((int)$date->format('W')).' and day number '.((int)$date->format('z')+1).' of the year. It '.$dst_text.' currently Daylight Saving Time in '.$obs->display_location->city.'.</Say>
     <Say voice="woman">Thank you for calling '.$obs->display_location->city.' Time and Temperature: a free hobby service, courtesy of '.$courtesy_of_phonetic.', and Weather Underground dot com.</Say>
-    <Say voice="man">The temperature in '.$obs->observation_location->city.' was '.$obs->temp_f.' degrees Fahrenheit today at '.$obs_date->format('g:i A').'. The weather was '.$obs->weather.' with winds '.$obs->wind_string.'. The dew point was '.$obs->dewpoint_f.' degrees, pressure '.$obs->pressure_mb.' millibars '.$pres_text.', visibility '.$obs->visibility_mi.' miles. The temperature felt like '.$obs->feelslike_f.' degrees.</Say>
+    <Say voice="man">The temperature in '.$obs->observation_location->city.' was '.$obs->temp_f.' degrees Fahrenheit today at '.$obs_date->format('g:i A').'. The weather was '.$obs->weather.' with winds '.$obs->wind_string.'. The dew point was '.$obs->dewpoint_f.' degrees. The pressure was '.$obs->pressure_in.' inches of mercury '.$pres_text.'. The visibility was '.$obs->visibility_mi.' miles. The temperature felt like '.$obs->feelslike_f.' degrees.</Say>
     <Gather input="dtmf" timeout="5" numDigits="1">
         <Say voice="woman">Please press any key to hear this message again.</Say>
     </Gather>
-    <Say voice="woman">Thanks again for calling. Goodbye.</Say>';
+    <Say voice="woman">Thanks again for calling. You are loved. Goodbye for now.</Say>';
 }
 
 if ($sms) {
-    $out .= '<Message>The current time is '.$date->format('g:i:s A').', on '.$date->format('F j, Y').'. It is week number '.((int)$date->format('W')).' and day number '.((int)$date->format('z')).' of the year. It '.$dst_text.' currently Daylight Saving Time in '.$date->format('T').'. The temperature in '.$obs->observation_location->city.' was '.$obs->temp_f.'F today at '.$obs_date->format('g:i A').' (zyphon.com via wunderground.com)</Message>';
+    $out .= '<Message>The current time in '.$obs->display_location->city.' is '.$date->format('g:i:s A').', on '.$date->format('F j, Y').'. It is week number '.((int)$date->format('W')).' and day number '.((int)$date->format('z')+1).' of the year. It '.$dst_text.' currently Daylight Saving Time. The temperature in '.$obs->observation_location->city.' was '.$obs->temp_f.'F today at '.$obs_date->format('g:i A').' ('.$courtesy_of.' via wunderground.com)</Message>';
 }
 
 $out .= '</Response>';
