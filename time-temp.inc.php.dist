@@ -3,6 +3,7 @@
 // This is a sample config file. Copy to time-temp.inc.php
 //  and modify the UPPERCASE bits.
 
+$courtesy_of = "YOUR COMPANY HERE"; // spell this normally (i.e. github.com)
 $courtesy_of_phonetic = "YOUR COMPANY NAME HERE"; // spell this phonetically (i.e. get hub dot com)
 $wunderkey = "YOUR_WEATHERUNDERGROUND_API_KEY";
 $url = "http://api.wunderground.com/api/";
