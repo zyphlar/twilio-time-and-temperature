@@ -10,9 +10,9 @@ $feature = "/conditions";
 // TODO: replace the 1212 number(s) with YOUR Twilio number(s)
 // and the appropriate cities/states for each $path .
 
-if ($_POST['To'] == "+19995551212") {
+if (array_key_exists('To', $_POST) && $_POST['To'] == "+19995551212") {
     $path = "/q/CA/San_Francisco.json";
-} elseif ($_POST['To'] == "+19997771212") {
+} elseif (array_key_exists('To', $_POST) && $_POST['To'] == "+19997771212") {
     $path = "/q/HI/Honolulu.json";
 } else {
     $path = "/q/NY/New_York.json";
