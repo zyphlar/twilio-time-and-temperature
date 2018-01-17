@@ -54,7 +54,7 @@ $out = '<?xml version="1.0" encoding="UTF-8"?>
 
 if ($voice) {
     $out .= '<Say voice="man">Hello. '.$date->format('g:i:s A').' is the current time, on '.$date->format('F j, Y').'. It is week number '.((int)$date->format('W')).' and day number '.((int)$date->format('z')).' of the year. It '.$dst_text.' currently Daylight Saving Time in '.$obs->display_location->city.'.</Say>
-    <Say voice="woman">Thank you for calling '.$obs->display_location->city.' Time and Temperature: a free hobby service, courtesy of zye fawn dot com, and Weather Underground dot com.</Say>
+    <Say voice="woman">Thank you for calling '.$obs->display_location->city.' Time and Temperature: a free hobby service, courtesy of '.$courtesy_of_phonetic.', and Weather Underground dot com.</Say>
     <Say voice="man">The temperature in '.$obs->observation_location->city.' was '.$obs->temp_f.' degrees Fahrenheit today at '.$obs_date->format('g:i A').'. The weather was '.$obs->weather.' with winds '.$obs->wind_string.'. The dew point was '.$obs->dewpoint_f.' degrees, pressure '.$obs->pressure_mb.' millibars '.$pres_text.', visibility '.$obs->visibility_mi.' miles. The temperature felt like '.$obs->feelslike_f.' degrees.</Say>
     <Gather input="dtmf" timeout="5" numDigits="1">
         <Say voice="woman">Please press any key to hear this message again.</Say>
