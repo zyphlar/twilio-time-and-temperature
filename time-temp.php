@@ -59,7 +59,7 @@ if ($voice) {
     <Gather input="dtmf" timeout="5" numDigits="1">
         <Say voice="woman">Please press any key to hear this message again.</Say>
     </Gather>
-    <Say voice="woman">Thanks again for calling. You are loved. Goodbye for now.</Say>';
+    <Say voice="woman">Thanks again for calling. '.$motds[0].' Goodbye for now.</Say>';
 }
 
 if ($sms) {
